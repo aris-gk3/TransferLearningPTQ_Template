@@ -1,5 +1,13 @@
 # Project README
 
+### Workflow
+
+Setup step (change .env paths or set relative dataset path in cloud environment)
+1. Find head structure & data augmentation strategy
+2. Train (unfreeze head and/or last block)
+2. Find ranges of weights, bias & activation (Visualize optionally)
+3. PTQ (3 methods) & Evaluate
+
 ### To-do
 
 1. Create hwa_wt_range_search.ipynb
