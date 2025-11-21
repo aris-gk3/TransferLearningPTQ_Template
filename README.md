@@ -1,27 +1,8 @@
 # Project README
 
-### Workflow
+## Getting Started
 
-Setup step (change .env paths or set relative dataset path in cloud environment)
-1. Find head structure & data augmentation strategy
-2. Train (unfreeze head and/or last block)
-2. Find ranges of weights, bias & activation (Visualize optionally)
-3. PTQ (3 methods) & Evaluate
-
-### To-do
-
-1. Create hwa_wt_range_search.ipynb
-
-### Before Getting Started
-
-
-* .env should be added with the following paths in the root directory:  
-BASE_PATH, PATH_DATASET, PATH_TEST, PATH_RAWDATA, PATH_JOINEDDATA, PATH_SAVEDMODELS   
-
-The folder structure presented below should be followed.
-
-
-* This project goes hand to hand with [ml_project_util](https://github.com/aris-gk3/ml_project_util) . This package is installed as below.
+Everything is based on the package from [this repo](https://github.com/aris-gk3/ml_project_util). It is installed below.
 
 ``` python
 # In cloud engines/environments
@@ -30,8 +11,18 @@ The folder structure presented below should be followed.
 pip install git+https://github.com/aris-gk3/ml_project_util.git
 ```
 
+Setup step (change .env paths or set relative dataset path in cloud environment), as shown [here](https://github.com/aris-gk3/ml_project_util). 
+1. Find head structure & data augmentation strategy
+2. Train (unfreeze head and/or last block)
+3. Find ranges of weights, bias & activation (Visualize optionally)
+4. PTQ (3 methods) & Evaluate
 
-### Workflow for getting started with new project
+> Example code for many utilities is given in [Modular Notebooks/](./data/).
+
+> Full examples for 5 datasets are in [End-to-End Notebooks/](./End-to-End/) .
+
+
+## Workflow
 
 1. Dataset & Test Split  
 Add images in classes
@@ -41,17 +32,3 @@ b. If needed, unfreeze some more layers & train
 3. Apply PTQ and evaluate  
 Code iteratively finds appropriate ranges for quantization.
 Calculations are made for HW efficient quantization. In this, multiply and add operations for scaling between layers is substituted with bit shifting by adjusting the ranges of each layer.
-
-
-### Dataset & Test Split 
-
-In both Tran_val & Test directories, images are contained in 1 subdirectory per class.
-
-### Preproccessing
-
-VGG-16 takes as input _224x224x3_, where 3 stands for BGR.
-
-Choose appropriate Data Augmentation strategy.
-
-
-**Add example code**
